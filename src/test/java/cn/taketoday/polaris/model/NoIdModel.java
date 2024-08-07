@@ -16,7 +16,7 @@
 
 package cn.taketoday.polaris.model;
 
-import cn.taketoday.polaris.Table;
+import cn.taketoday.polaris.annotation.Table;
 import lombok.Data;
 
 /**

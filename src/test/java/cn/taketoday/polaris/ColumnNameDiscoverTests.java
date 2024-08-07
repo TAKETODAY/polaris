@@ -24,6 +24,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.util.List;
 
+import cn.taketoday.polaris.annotation.Column;
 import cn.taketoday.polaris.model.UserModel;
 
 import static cn.taketoday.polaris.beans.BeanProperty.valueOf;

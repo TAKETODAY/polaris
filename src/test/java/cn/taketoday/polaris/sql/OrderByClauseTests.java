@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
-import cn.taketoday.polaris.Order;
+import cn.taketoday.polaris.annotation.Order;
 import cn.taketoday.polaris.util.Pair;
 
 import static org.assertj.core.api.Assertions.assertThat;

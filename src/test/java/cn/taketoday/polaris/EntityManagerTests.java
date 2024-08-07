@@ -28,6 +28,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import cn.taketoday.polaris.annotation.Column;
+import cn.taketoday.polaris.annotation.EntityRef;
+import cn.taketoday.polaris.annotation.Id;
+import cn.taketoday.polaris.annotation.Order;
+import cn.taketoday.polaris.annotation.UpdateBy;
+import cn.taketoday.polaris.annotation.Where;
 import cn.taketoday.polaris.jdbc.NamedQuery;
 import cn.taketoday.polaris.jdbc.RepositoryManager;
 import cn.taketoday.polaris.model.Gender;

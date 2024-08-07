@@ -31,16 +31,16 @@ import cn.taketoday.polaris.sql.SimpleSelect;
 final class MapQueryHandlerFactory implements QueryHandlerFactory {
 
   @Override
-  public QueryStatement createQuery(Object example) {
-    if (example instanceof Map<?, ?> map) {
+  public QueryStatement createQuery(Object param) {
+    if (param instanceof Map<?, ?> map) {
       return new MapQueryStatement(map);
     }
     return null;
   }
 
   @Override
-  public ConditionStatement createCondition(Object example) {
-    if (example instanceof Map<?, ?> map) {
+  public ConditionStatement createCondition(Object param) {
+    if (param instanceof Map<?, ?> map) {
       return new MapQueryStatement(map);
     }
     return null;

@@ -16,7 +16,7 @@
 
 package cn.taketoday.polaris.jdbc;
 
-import cn.taketoday.polaris.Column;
+import cn.taketoday.polaris.annotation.Column;
 
 public class ColumnEntity {
 

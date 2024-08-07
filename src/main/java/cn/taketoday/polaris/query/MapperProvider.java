@@ -14,21 +14,14 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package cn.taketoday.polaris.query;
 
 /**
- * Trim
- *
  * @author <a href="https://github.com/TAKETODAY">海子 Yang</a>
- * @since 1.0 2024/7/27 23:25
+ * @since 1.0 2024/8/4 21:20
  */
-@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD })
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Trim {
+public interface MapperProvider {
+
+  <T> T getMapper(Class<T> mapperClass);
 
 }

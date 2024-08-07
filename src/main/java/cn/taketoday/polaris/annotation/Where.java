@@ -14,39 +14,32 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
+package cn.taketoday.polaris.annotation;
 
-import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import cn.taketoday.polaris.Constant;
+
 /**
- * Specifies the mapped column for a persistent property or field.
- * If no <code>Column</code> annotation is specified, the default values apply.
- * <pre> {@code
- *    // Example
+ * Where clause to add to the element Entity or target entity of a collection.
+ * The clause is written in SQL.
  *
- *    @Column("DESC")
- *    public String getDescription() {
- *      return description;
- *    }
- *
- * }</pre>
- *
+ * @author Emmanuel Bernard
  * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 2021/1/27 22:32
+ * @since 1.0
  */
-@Documented
+@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.FIELD })
-public @interface Column {
+public @interface Where {
 
   /**
-   * (Optional) The name of the column. Defaults to
-   * the property or field name.
+   * The where-clause predicate.
    */
-  String value() default "";
+  String value() default Constant.DEFAULT_NONE;
+
+  String condition() default Constant.DEFAULT_NONE;
 
 }

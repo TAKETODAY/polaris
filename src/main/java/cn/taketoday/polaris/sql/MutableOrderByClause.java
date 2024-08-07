@@ -19,7 +19,7 @@ package cn.taketoday.polaris.sql;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import cn.taketoday.polaris.Order;
+import cn.taketoday.polaris.annotation.Order;
 import cn.taketoday.polaris.util.Nullable;
 import cn.taketoday.polaris.util.Pair;
 

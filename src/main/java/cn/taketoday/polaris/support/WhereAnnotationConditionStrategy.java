@@ -19,13 +19,13 @@ package cn.taketoday.polaris.support;
 import cn.taketoday.polaris.Constant;
 import cn.taketoday.polaris.EntityProperty;
 import cn.taketoday.polaris.PropertyConditionStrategy;
-import cn.taketoday.polaris.Trim;
-import cn.taketoday.polaris.Where;
+import cn.taketoday.polaris.annotation.Trim;
+import cn.taketoday.polaris.annotation.Where;
 import cn.taketoday.polaris.sql.Restriction;
 import cn.taketoday.polaris.util.Nullable;
 
 /**
- * 处理 {@link cn.taketoday.polaris.Where} 注解
+ * 处理 {@link Where} 注解
  *
  * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
  * @since 1.0 2024/2/25 00:02

@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import cn.taketoday.polaris.PropertyConditionStrategy.Condition;
+import cn.taketoday.polaris.annotation.Order;
+import cn.taketoday.polaris.annotation.OrderBy;
 import cn.taketoday.polaris.logging.LogMessage;
 import cn.taketoday.polaris.sql.MutableOrderByClause;
 import cn.taketoday.polaris.sql.OrderByClause;

@@ -14,37 +14,30 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris.jdbc;
+package cn.taketoday.polaris.query;
+
+import cn.taketoday.polaris.ConditionStatement;
+import cn.taketoday.polaris.QueryHandlerFactory;
+import cn.taketoday.polaris.QueryStatement;
 
 /**
- * Represents a result set column
+ * @author <a href="https://github.com/TAKETODAY">海子 Yang</a>
+ * @since 1.0 2024/8/1 22:49
  */
-public final class Column {
+public class MappedStatementHandlerFactory implements QueryHandlerFactory {
 
-  private final String name;
-  private final int index;
-  private final String type;
+  @Override
+  public QueryStatement createQuery(Object param) {
+    if (param instanceof MappedStatement mapped) {
+      String statementId = mapped.statementId;
 
-  public Column(String name, int index, String type) {
-    this.name = name;
-    this.index = index;
-    this.type = type;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public int getIndex() {
-    return index;
-  }
-
-  public String getType() {
-    return type;
+    }
+    return null;
   }
 
   @Override
-  public String toString() {
-    return getName() + " (" + getType() + ")";
+  public ConditionStatement createCondition(Object param) {
+    return null;
   }
+
 }

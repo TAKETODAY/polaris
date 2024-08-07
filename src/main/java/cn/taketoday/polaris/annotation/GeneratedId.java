@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
+package cn.taketoday.polaris.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -24,10 +24,9 @@ import java.lang.annotation.Target;
 
 /**
  * Specifies the primary key of an entity.
- * The field or property to which the <code>Id</code> annotation is applied
- * should be one of the following types: any Java primitive type;
+ * The field or property to which the <code>GeneratedId</code> annotation
+ * is applied should be one of the following types: any Java primitive type;
  * any primitive wrapper type;
- * <code>String</code>;
  * <code>java.math.BigDecimal</code>;
  * <code>java.math.BigInteger</code>.
  *
@@ -39,18 +38,19 @@ import java.lang.annotation.Target;
  * <pre>{@code
  *   // Example:
  *
- *   @Id
+ *   @GeneratedId
  *   public Long getId() {
  *     return id;
  *   }
  * }</pre>
  *
  * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 1.0 2022/8/16 20:58
+ * @since 1.0 2024/2/14 21:11
  */
+@Id
 @Documented
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Id {
+public @interface GeneratedId {
 
 }

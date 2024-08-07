@@ -31,6 +31,8 @@ import cn.taketoday.polaris.jdbc.parsing.QueryParameter;
 import cn.taketoday.polaris.jdbc.parsing.SqlParameterParser;
 import cn.taketoday.polaris.jdbc.support.JdbcAccessor;
 import cn.taketoday.polaris.jdbc.support.JdbcTransactionManager;
+import cn.taketoday.polaris.query.MapperFactory;
+import cn.taketoday.polaris.query.MapperProvider;
 import cn.taketoday.polaris.transaction.Isolation;
 import cn.taketoday.polaris.transaction.TransactionConfig;
 import cn.taketoday.polaris.transaction.TransactionManager;
@@ -60,7 +62,11 @@ import cn.taketoday.polaris.util.Nullable;
  * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
  * @since 1.0
  */
-public class RepositoryManager extends JdbcAccessor implements QueryProducer {
+public class RepositoryManager extends JdbcAccessor implements QueryProducer, MapperProvider {
+
+  private final TransactionManager transactionManager;
+
+  private final MapperFactory mapperFactory = new MapperFactory(this);
 
   private TypeHandlerManager typeHandlerManager = TypeHandlerManager.sharedInstance;
 
@@ -82,8 +88,6 @@ public class RepositoryManager extends JdbcAccessor implements QueryProducer {
 
   @Nullable
   private EntityManager entityManager;
-
-  private final TransactionManager transactionManager;
 
   /**
    * 创建一个 RepositoryManager 实例
@@ -118,6 +122,15 @@ public class RepositoryManager extends JdbcAccessor implements QueryProducer {
     super(connectionSource);
     Assert.notNull(transactionManager, "transactionManager is required");
     this.transactionManager = transactionManager;
+  }
+
+  /**
+   * 设置全局的 XML 配置
+   *
+   * @param mapperLocation mapper 地址，从 classpath 下读取
+   */
+  public void setMapperLocation(@Nullable String mapperLocation) {
+    mapperFactory.setMapperLocation(mapperLocation);
   }
 
   /**
@@ -718,12 +731,19 @@ public class RepositoryManager extends JdbcAccessor implements QueryProducer {
 
   //
 
-  public <T> TypeHandler<T> getTypeHandler(BeanProperty property) {
+  <T> TypeHandler<T> getTypeHandler(BeanProperty property) {
     return typeHandlerManager.getTypeHandler(property);
   }
 
-  public <T> TypeHandler<T> getTypeHandler(Class<T> type) {
+  <T> TypeHandler<T> getTypeHandler(Class<T> type) {
     return typeHandlerManager.getTypeHandler(type);
+  }
+
+  // MapperProvider
+
+  @Override
+  public <T> T getMapper(Class<T> mapperClass) {
+    return mapperFactory.getMapper(mapperClass);
   }
 
 }

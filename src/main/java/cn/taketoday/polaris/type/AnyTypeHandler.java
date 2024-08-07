@@ -26,7 +26,7 @@ import cn.taketoday.polaris.util.Nullable;
 
 /**
  * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 5.0 2024/6/20 22:22
+ * @since 1.0 2024/6/20 22:22
  */
 public final class AnyTypeHandler<T> implements TypeHandler<T> {
 

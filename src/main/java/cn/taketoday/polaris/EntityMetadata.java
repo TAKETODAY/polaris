@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
+import cn.taketoday.polaris.annotation.GeneratedId;
 import cn.taketoday.polaris.beans.BeanMetadata;
 import cn.taketoday.polaris.beans.BeanProperty;
 import cn.taketoday.polaris.util.Nullable;

@@ -81,7 +81,7 @@ final class PropertyPath {
     return parent;
   }
 
-  public void set(Object obj, Object result) {
+  public void set(Object obj, @Nullable Object result) {
     PropertyPath current = this;
     while (current.next != null) {
       obj = getProperty(obj);

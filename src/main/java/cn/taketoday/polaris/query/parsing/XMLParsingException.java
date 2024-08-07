@@ -14,31 +14,21 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
+package cn.taketoday.polaris.query.parsing;
 
-import org.junit.jupiter.api.Test;
-
-import cn.taketoday.polaris.annotation.EntityRef;
-import cn.taketoday.polaris.model.UserModel;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import cn.taketoday.polaris.util.Nullable;
 
 /**
  * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 1.0 2022/8/16 22:56
+ * @since 1.0 2024/7/11 11:30
  */
-class TableNameGeneratorTests {
+public class XMLParsingException extends RuntimeException {
 
-  @Test
-  void forAnnotation() {
-    TableNameGenerator generator = TableNameGenerator.forTableAnnotation();
-    assertThat(generator.generateTableName(UserModel.class)).isEqualTo("t_user");
-    assertThat(generator.generateTableName(UpdateUserName.class)).isEqualTo("t_user");
+  public XMLParsingException(@Nullable String msg) {
+    super(msg);
   }
 
-  @EntityRef(UserModel.class)
-  static class UpdateUserName {
-
+  public XMLParsingException(@Nullable String msg, @Nullable Throwable cause) {
+    super(msg, cause);
   }
-
 }

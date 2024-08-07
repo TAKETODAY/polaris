@@ -14,35 +14,22 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
+package cn.taketoday.polaris.query;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * clause and direction cannot present same time
- *
- * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 1.0 2024/3/31 17:21
+ * @author <a href="https://github.com/TAKETODAY">海子 Yang</a>
+ * @since 1.0 2024/7/31 10:38
  */
-@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD })
+@Documented
+@Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface OrderBy {
+public @interface StatementId {
 
-  /**
-   * Class level
-   */
-  String value() default Constant.DEFAULT_NONE;
-
-  /**
-   * Class level
-   */
-  String clause() default Constant.DEFAULT_NONE;
-
-  /**
-   * Property level
-   */
-  Order direction() default Order.ASC;
+  String value();
 }

@@ -14,37 +14,40 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
+package cn.taketoday.polaris.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import static java.lang.annotation.ElementType.FIELD;
-import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
 /**
- * Specifies that the property or field is not persistent. It is used
- * to annotate a property or field of an entity class
+ * Specifies the primary table ref for the annotated entity
  *
- * <pre>{@code
- *    @Table
- *    public class Employee {
- *        @Id int id;
- *        @Transient User currentUser;
- *        ...
+ * <pre> {@code
+ *    Example:
+ *
+ *    @Table(name="t_user")
+ *    public class User {
+ *      ...
  *    }
- * }
- * </pre>
+ *
+ *    @EntityRef(User.class)
+ *    public class UpdateUser {
+ *      ...
+ *    }
+ *
+ * }</pre>
  *
  * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 1.0 2023/3/3 18:22
+ * @since 1.0 2024/4/11 13:36
  */
 @Documented
-@Retention(RUNTIME)
-@Target({ ElementType.ANNOTATION_TYPE, METHOD, FIELD })
-public @interface Transient {
+@Target({ ElementType.ANNOTATION_TYPE, ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
+public @interface EntityRef {
+
+  Class<?> value();
 
 }

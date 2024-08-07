@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ServiceLoader;
 
+import cn.taketoday.polaris.query.MappedStatementHandlerFactory;
 import cn.taketoday.polaris.util.Nullable;
 
 /**
@@ -34,15 +35,16 @@ final class QueryHandlerFactories implements QueryHandlerFactory {
     var serviceLoader = ServiceLoader.load(QueryHandlerFactory.class);
     var list = new ArrayList<>(serviceLoader.stream().map(ServiceLoader.Provider::get).toList());
     list.add(new MapQueryHandlerFactory());
+    list.add(new MappedStatementHandlerFactory());
     list.add(new DefaultQueryHandlerFactory(metadataFactory));
     this.factories = List.copyOf(list);
   }
 
   @Nullable
   @Override
-  public QueryStatement createQuery(Object example) {
+  public QueryStatement createQuery(Object param) {
     for (QueryHandlerFactory factory : factories) {
-      QueryStatement query = factory.createQuery(example);
+      QueryStatement query = factory.createQuery(param);
       if (query != null) {
         return query;
       }
@@ -52,9 +54,9 @@ final class QueryHandlerFactories implements QueryHandlerFactory {
 
   @Nullable
   @Override
-  public ConditionStatement createCondition(Object example) {
+  public ConditionStatement createCondition(Object param) {
     for (QueryHandlerFactory factory : factories) {
-      ConditionStatement condition = factory.createCondition(example);
+      ConditionStatement condition = factory.createCondition(param);
       if (condition != null) {
         return condition;
       }

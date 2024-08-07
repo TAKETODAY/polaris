@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
+package cn.taketoday.polaris.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

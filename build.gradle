@@ -51,6 +51,9 @@ configure(allprojects) {
 dependencies {
   optional("org.slf4j:slf4j-api")
 
+  optional 'com.github.jsqlparser:jsqlparser:5.0'
+
+
   testImplementation 'com.google.guava:guava:33.1.0-jre'
   testImplementation 'org.zapodot:embedded-db-junit:1.0.0'
   testImplementation 'commons-dbutils:commons-dbutils:1.7'

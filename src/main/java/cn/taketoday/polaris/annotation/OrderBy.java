@@ -14,31 +14,37 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
+package cn.taketoday.polaris.annotation;
 
-import org.junit.jupiter.api.Test;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-import cn.taketoday.polaris.annotation.EntityRef;
-import cn.taketoday.polaris.model.UserModel;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import cn.taketoday.polaris.Constant;
 
 /**
+ * clause and direction cannot present same time
+ *
  * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 1.0 2022/8/16 22:56
+ * @since 1.0 2024/3/31 17:21
  */
-class TableNameGeneratorTests {
+@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD })
+@Retention(RetentionPolicy.RUNTIME)
+public @interface OrderBy {
 
-  @Test
-  void forAnnotation() {
-    TableNameGenerator generator = TableNameGenerator.forTableAnnotation();
-    assertThat(generator.generateTableName(UserModel.class)).isEqualTo("t_user");
-    assertThat(generator.generateTableName(UpdateUserName.class)).isEqualTo("t_user");
-  }
+  /**
+   * Class level
+   */
+  String value() default Constant.DEFAULT_NONE;
 
-  @EntityRef(UserModel.class)
-  static class UpdateUserName {
+  /**
+   * Class level
+   */
+  String clause() default Constant.DEFAULT_NONE;
 
-  }
-
+  /**
+   * Property level
+   */
+  Order direction() default Order.ASC;
 }

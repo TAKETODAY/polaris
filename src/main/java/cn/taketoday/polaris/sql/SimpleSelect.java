@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-import cn.taketoday.polaris.Order;
+import cn.taketoday.polaris.annotation.Order;
 import cn.taketoday.polaris.Pageable;
 import cn.taketoday.polaris.StatementSequence;
 import cn.taketoday.polaris.platform.Platform;

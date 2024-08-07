@@ -48,13 +48,13 @@ final class DefaultQueryHandlerFactory implements QueryHandlerFactory {
   }
 
   @Override
-  public QueryStatement createQuery(Object example) {
-    return new ExampleQuery(factory, example, strategies);
+  public QueryStatement createQuery(Object param) {
+    return new ExampleQuery(factory, param, strategies);
   }
 
   @Override
-  public ConditionStatement createCondition(Object example) {
-    return new ExampleQuery(factory, example, strategies);
+  public ConditionStatement createCondition(Object param) {
+    return new ExampleQuery(factory, param, strategies);
   }
 
 }

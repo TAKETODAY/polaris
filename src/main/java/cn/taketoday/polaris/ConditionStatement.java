@@ -20,6 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
+import cn.taketoday.polaris.annotation.OrderBy;
 import cn.taketoday.polaris.sql.OrderByClause;
 import cn.taketoday.polaris.sql.Restriction;
 import cn.taketoday.polaris.util.Descriptive;

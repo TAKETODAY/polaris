@@ -19,6 +19,7 @@ package cn.taketoday.polaris;
 import java.lang.annotation.Annotation;
 import java.util.List;
 
+import cn.taketoday.polaris.annotation.Column;
 import cn.taketoday.polaris.beans.BeanProperty;
 import cn.taketoday.polaris.util.AnnotationUtils;
 import cn.taketoday.polaris.util.Assert;

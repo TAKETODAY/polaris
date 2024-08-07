@@ -14,41 +14,27 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
+package cn.taketoday.polaris.annotation;
 
-import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import cn.taketoday.polaris.Constant;
+
 /**
- * Specifies the primary table for the annotated entity
- *
- * <p> If no <code>Table</code> annotation is specified for an entity
- * class, the default values apply.
- *
- * <pre> {@code
- *    Example:
- *
- *    @Table(t_user")
- *    public class User {
- *      ...
- *    }
- * }</pre>
- *
  * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 1.0 2022/8/16 21:05
+ * @since 1.0 2024/2/24 23:53
  */
-@Documented
-@Target({ ElementType.ANNOTATION_TYPE, ElementType.TYPE })
+@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Table {
+public @interface Like {
 
   /**
-   * (Optional) The name of the table.
-   * <p> Defaults to the entity name.
+   * The where-clause predicate.
    */
-  String value() default "";
+  String value() default Constant.DEFAULT_NONE;
 
+  boolean trim() default true;
 }

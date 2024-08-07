@@ -18,6 +18,8 @@ package cn.taketoday.polaris;
 
 import java.lang.annotation.Annotation;
 
+import cn.taketoday.polaris.annotation.EntityRef;
+import cn.taketoday.polaris.annotation.Table;
 import cn.taketoday.polaris.util.AnnotationUtils;
 import cn.taketoday.polaris.util.Assert;
 import cn.taketoday.polaris.util.Nullable;

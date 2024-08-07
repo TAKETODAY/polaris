@@ -14,20 +14,21 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
+package cn.taketoday.polaris.annotation;
 
-import cn.taketoday.polaris.util.Nullable;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 1.0 2024/4/10 13:54
+ * Trim
+ *
+ * @author <a href="https://github.com/TAKETODAY">海子 Yang</a>
+ * @since 1.0 2024/7/27 23:25
  */
-public interface QueryHandlerFactory {
-
-  @Nullable
-  QueryStatement createQuery(Object param);
-
-  @Nullable
-  ConditionStatement createCondition(Object param);
+@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD })
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Trim {
 
 }

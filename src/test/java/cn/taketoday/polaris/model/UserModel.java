@@ -18,8 +18,8 @@ package cn.taketoday.polaris.model;
 
 import java.util.Objects;
 
-import cn.taketoday.polaris.Id;
-import cn.taketoday.polaris.Table;
+import cn.taketoday.polaris.annotation.Id;
+import cn.taketoday.polaris.annotation.Table;
 import lombok.Data;
 
 /**

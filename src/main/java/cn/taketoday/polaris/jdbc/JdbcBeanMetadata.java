@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import cn.taketoday.polaris.Column;
+import cn.taketoday.polaris.annotation.Column;
 import cn.taketoday.polaris.beans.BeanMetadata;
 import cn.taketoday.polaris.beans.BeanProperty;
 import cn.taketoday.polaris.util.MapCache;

@@ -22,6 +22,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 import java.util.Set;
 
+import cn.taketoday.polaris.annotation.Transient;
 import cn.taketoday.polaris.beans.BeanMetadata;
 import cn.taketoday.polaris.model.UserModel;
 

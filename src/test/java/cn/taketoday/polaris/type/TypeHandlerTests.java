@@ -55,7 +55,7 @@ import static org.mockito.Mockito.verify;
 
 /**
  * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 5.0 2024/6/15 11:15
+ * @since 1.0 2024/6/15 11:15
  */
 class TypeHandlerTests {
 

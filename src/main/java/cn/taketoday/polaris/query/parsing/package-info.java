@@ -14,20 +14,12 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
-
-import cn.taketoday.polaris.util.Nullable;
-
 /**
- * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 1.0 2024/4/10 13:54
+ * XML Parsing.
  */
-public interface QueryHandlerFactory {
+@NonNullApi
+@NonNullFields
+package cn.taketoday.polaris.query.parsing;
 
-  @Nullable
-  QueryStatement createQuery(Object param);
-
-  @Nullable
-  ConditionStatement createCondition(Object param);
-
-}
+import cn.taketoday.polaris.util.NonNullApi;
+import cn.taketoday.polaris.util.NonNullFields;

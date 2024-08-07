@@ -18,10 +18,10 @@ package cn.taketoday.polaris.support;
 
 import cn.taketoday.polaris.Constant;
 import cn.taketoday.polaris.EntityProperty;
-import cn.taketoday.polaris.Like;
-import cn.taketoday.polaris.PrefixLike;
+import cn.taketoday.polaris.annotation.Like;
+import cn.taketoday.polaris.annotation.PrefixLike;
 import cn.taketoday.polaris.PropertyConditionStrategy;
-import cn.taketoday.polaris.SuffixLike;
+import cn.taketoday.polaris.annotation.SuffixLike;
 import cn.taketoday.polaris.sql.Restriction;
 import cn.taketoday.polaris.util.Nullable;
 

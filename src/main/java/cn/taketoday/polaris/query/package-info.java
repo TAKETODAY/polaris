@@ -14,27 +14,12 @@
  * limitations under the License.
  */
 
-package cn.taketoday.polaris;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 /**
- * @author <a href="https://github.com/TAKETODAY">Harry Yang</a>
- * @since 1.0 2024/2/24 23:53
+ * Polaris ORM Query
  */
-@Like
-@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD })
-@Retention(RetentionPolicy.RUNTIME)
-public @interface PrefixLike {
+@NonNullApi
+@NonNullFields
+package cn.taketoday.polaris.query;
 
-  /**
-   * The where-clause predicate.
-   */
-  String value() default Constant.DEFAULT_NONE;
-
-  boolean trim() default true;
-
-}
+import cn.taketoday.polaris.util.NonNullApi;
+import cn.taketoday.polaris.util.NonNullFields;
